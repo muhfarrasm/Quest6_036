@@ -7,7 +7,11 @@ import com.example.navigasiwithdata_act6.model.RencanaStudi
 @Composable
 fun RencanaStudi(
     mahasiswa: Mahasiswa,
+    onSubmitButtonClicked: (MutableList<String>) ->Unit,
+    onBackButtonClicked: ()->Unit
+
 
 ){
+
 
 }
