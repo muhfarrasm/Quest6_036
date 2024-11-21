@@ -195,12 +195,6 @@ fun MahasiswaFormView(
                     Text(text = "Simpan")
                 }
             }
-
-
-
         }
-
-
     }
-
 }
