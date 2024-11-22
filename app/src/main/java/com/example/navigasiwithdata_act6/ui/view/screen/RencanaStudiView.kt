@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.RadioButton
@@ -26,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -162,6 +164,20 @@ fun RencanaStudi(
                             text = "Saya menyetujui setiap pernyataan yang ada tanpa paksaan dari pihak manapun.",
                             fontWeight = FontWeight.Light, fontSize = 10.sp
                         )
+                    }
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    Row (
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ){
+                        Button(onClick = {onBackButtonClicked()}){
+                            Text(text = "Kembali")
+                        }
+                        Button(onClick = {onSubmitButtonClicked(listData)}){
+                            Text(text = "Lanjut")
+                        }
+
+
                     }
 
                 }
