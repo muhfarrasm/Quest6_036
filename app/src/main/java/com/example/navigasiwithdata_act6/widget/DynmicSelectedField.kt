@@ -1,6 +1,7 @@
 package com.example.navigasiwithdata_act6.widget
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,5 +23,14 @@ fun DynamicSelectedField(
     var expanded by remember {
         mutableStateOf(false)
     }
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = {expanded = !expanded},
+        modifier = Modifier
+    )
+    {
+
+    }
+
 
 }
