@@ -2,6 +2,7 @@ package com.example.navigasiwithdata_act6.ui.view.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.navigasiwithdata_act6.R
 import com.example.navigasiwithdata_act6.data.MataKuliah
+import com.example.navigasiwithdata_act6.data.RuangKelas
 import com.example.navigasiwithdata_act6.model.Mahasiswa
 import com.example.navigasiwithdata_act6.model.RencanaStudi
 import com.example.navigasiwithdata_act6.widget.DynamicSelectedField
@@ -129,6 +132,21 @@ fun RencanaStudi(
                         fontWeight = FontWeight.Light
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
+                    Row (
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ){
+                        RuangKelas.kelas.forEach { data ->
+                            Row(verticalAlignment = Alignment.CenterVertically){
+                                RadioButton(
+                                    selected = pilihanKelas == data,
+                                    onClick = {pilihanKelas = data}
+                                )
+                                Text(data)
+                            }
+                        }
+
+                    }
 
                 }
 
