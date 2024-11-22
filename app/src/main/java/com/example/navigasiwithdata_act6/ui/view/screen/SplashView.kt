@@ -21,7 +21,7 @@ import com.example.navigasiwithdata_act6.R
 
 @Composable
 fun SplashView(
-    onMulaiButton: () -> Unit,
+    onMulaiButtons: () -> Unit,
 ){
     Column (modifier = Modifier
         .fillMaxSize()
