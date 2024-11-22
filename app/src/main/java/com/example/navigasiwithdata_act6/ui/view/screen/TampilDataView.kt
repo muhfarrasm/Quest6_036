@@ -14,6 +14,13 @@ fun TampilDataView(
     modifier: Modifier = Modifier
 )
 {
+    val listDataMhs = listOf(
+        Pair("Nama", dataMhs.nama),
+        Pair("NIM", dataMhs.nim),
+        Pair("Email", dataMhs.email),
+        Pair("Mata Kuliah", dataKrs.namaMK),
+        Pair("Kelas", dataKrs.kelas)
+    )
 
 
 }
