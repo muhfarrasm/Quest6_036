@@ -2,11 +2,18 @@ package com.example.navigasiwithdata_act6.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.navigasiwithdata_act6.model.RencanaStudi
 import com.example.navigasiwithdata_act6.ui.view.screen.MahasiswaFormView
+import com.example.navigasiwithdata_act6.ui.view.screen.RencanaStudi
 import com.example.navigasiwithdata_act6.ui.view.screen.SplashView
+import com.example.navigasiwithdata_act6.ui.view.screen.TampilDataView
 import com.example.navigasiwithdata_act6.ui.view.viewmodel.MahasiswaViewModel
 import com.example.navigasiwithdata_act6.ui.view.viewmodel.RencanaStudyViewModel
 
@@ -33,12 +40,10 @@ fun PengelolaHalaman(
         modifier = modifier.padding()
     )
     {
-        composable(route = Halaman.Splash.name) {
-            SplashView(
-                onMulaiButton = {
-                    navController.navigate(Halaman.Mahasiswa.name)
-                }
-            )
+        composable(route = Halaman.Splash.name){
+            SplashView (onMulaiButtons = {
+                navController.navigate(Halaman.Mahasiswa.name)
+            })
         }
 
         composable(route = Halaman.Mahasiswa.name){
@@ -54,7 +59,7 @@ fun PengelolaHalaman(
             )
         }
         composable(route = Halaman.Matakuliah.name) {
-            RencanaStudiView(
+            RencanaStudi(
                 mahasiswa = mahasiswaUiState,
                 onSubmitButtonClicked = {
                     krsViewModel.saveDataKRS(it)
@@ -68,7 +73,7 @@ fun PengelolaHalaman(
         composable(route = Halaman.Tampil.name) {
             TampilDataView(
                 dataMhs = mahasiswaUiState,
-                dataKrs = krsViewModel.krsStateUi.collectAsState().value,
+                dataKrs = krsViewModel.krsStateUI.collectAsState().value,
                 onBackButtonClicked = {
                     navController.popBackStack()
                 }
