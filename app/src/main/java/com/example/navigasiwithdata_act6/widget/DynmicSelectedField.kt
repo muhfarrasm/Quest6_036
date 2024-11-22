@@ -1,7 +1,13 @@
 package com.example.navigasiwithdata_act6.widget
 
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +35,23 @@ fun DynamicSelectedField(
         modifier = Modifier
     )
     {
+        OutlinedTextField(
+            readOnly = true,
+            value = selectedValue,
+            onValueChange = {},
+            trailingIcon = {
+                ExposedDropdownMenuDefaults.TrailingIcon(
+                    expanded = expanded
+                )
+            },
+            colors = OutlinedTextFieldDefaults.colors(),
+            modifier = Modifier
+                .menuAnchor()
+                .fillMaxWidth()
+
+        )
+
+
 
     }
 
