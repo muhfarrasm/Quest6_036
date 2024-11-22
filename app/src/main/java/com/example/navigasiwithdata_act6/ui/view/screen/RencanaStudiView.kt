@@ -29,8 +29,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.navigasiwithdata_act6.R
+import com.example.navigasiwithdata_act6.data.MataKuliah
 import com.example.navigasiwithdata_act6.model.Mahasiswa
 import com.example.navigasiwithdata_act6.model.RencanaStudi
+import com.example.navigasiwithdata_act6.widget.DynamicSelectedField
 
 
 @Composable
@@ -95,6 +97,28 @@ fun RencanaStudi(
                     )
                     .fillMaxSize(),
             ){
+                Column (
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp)
+                ){
+                    Text(text = "Pilih Mata Kuliah Peminatan", fontWeight = FontWeight.Bold)
+                    Text(
+                        text = "Silahkan pilih mata kuliah yang anda inginkan",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Light
+                    )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    DynamicSelectedField(
+                        selectedValue = chosenDropDown,
+                        options = MataKuliah.options,
+                        label = "Mata Kuliah",
+                        onValueChangeEvent = {
+                            chosenDropDown= it
+                        }
+                    )
+
+                }
 
             }
 
